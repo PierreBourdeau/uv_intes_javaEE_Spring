@@ -1,0 +1,27 @@
+<table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Title</th>
+        <th scope="col">Artist</th>
+        <th scope="col">Length</th>
+        <th scope="col">Genre</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+        <% for(let i=0; i<musics.length; i++) {%>
+      <tr>
+        <th scope="row"><%= i+1 %></th>
+        <td><%= musics[i].title%></td>
+        <td><%= musics[i].artist%></td>
+        <td>@<%= musics[i].length%></td>
+        <td><%= musics[i].genre%></td>
+        <td>
+          <button id="edit-btn<%= i %>" onclick="editSong('<%= musics[i].guid%>')" type="button" class="btn btn-primary" data-toggle="modal" data-target="#editSongModal"><i class="fas fa-edit"></i></button>
+          <button id="delete-btn<%= i %>" onclick="deleteSong('<%= musics[i].guid%>')" type="button" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button>
+        </td>
+      </tr>
+      <% } %>
+    </tbody>
+  </table>
